@@ -1,0 +1,62 @@
+natural_resources:
+  - id: iron-ore-vein
+    name: 'Iron Ore Vein'
+  - id: copper-ore-vein
+    name: 'Copper Ore Vein'
+  - id: stone-ore-vein
+    name: 'Stone Ore Vein'
+  - id: coal-vein
+    name: 'Coal Vein'
+  - id: silicon-ore-vein
+    name: 'Silicon Ore Vein'
+  - id: titanium-ore-vein
+    name: 'Titanium Ore Vein'
+  - id: kimberlite-ore-vein
+    name: 'Kimberlite Ore Vein'
+  - id: silicon-ore-vein
+    name: 'Silicon Ore Vein'
+  - id: fractal-silicon-ore-vein
+    name: 'Fractal Silicon Ore Vein'
+  - id: crude-oil-vein
+    name: 'Crude Oil Vein'
+  - id: water-ocean
+    name: 'Water Ocean'
+  - id: sulfuric-acid-ocean
+    name: 'Sulfuric Acid Ocean'
+  - id: magma
+    name: 'Magma'
+  - id: tree
+    name: 'Tree'
+items:
+  - id: iron-ore
+    name: 'Iron Ore'
+    recipes:
+      - building_type: miner
+        quantity: 1
+        time: 2
+        ingredients:
+          iron-ore-vein: 1
+  - id: iron-ingot
+    name: 'Iron Ingot'
+    recipes:
+      - building_type: smelter
+        quantity: 1
+        time: 1
+        ingredients:
+          iron-ore: 1
+  - id: steel
+    name: 'Steel'
+    recipes:
+      - building_type: smelter
+        quantity: 1
+        time: 3
+        ingredients:
+          iron-ingot: 3
+  - id: gear
+    name: 'Gear'
+    recipes:
+      - building_type: assembler
+        quantity: 1
+        time: 1
+        ingredients:
+          iron-ingot: 1
