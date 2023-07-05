@@ -1,193 +1,121 @@
-natural_resources:
-  - id: iron-ore-vein
-    name: 'Iron Ore Vein'
-  - id: copper-ore-vein
-    name: 'Copper Ore Vein'
-  - id: stone-ore-vein
-    name: 'Stone Ore Vein'
-  - id: coal-vein
-    name: 'Coal Vein'
-  - id: silicon-ore-vein
-    name: 'Silicon Ore Vein'
-  - id: titanium-ore-vein
-    name: 'Titanium Ore Vein'
-  - id: kimberlite-ore-vein
-    name: 'Kimberlite Ore Vein'
-  - id: silicon-ore-vein
-    name: 'Silicon Ore Vein'
-  - id: fractal-silicon-ore-vein
-    name: 'Fractal Silicon Ore Vein'
-  - id: crude-oil-vein
-    name: 'Crude Oil Vein'
-  - id: water-ocean
-    name: 'Water Ocean'
-  - id: sulfuric-acid-ocean
-    name: 'Sulfuric Acid Ocean'
-  - id: magma
-    name: 'Magma'
-  - id: tree
-    name: 'Tree'
 items:
   - id: iron-ore
-    name: 'Iron Ore'
-    recipes:
-      - building_type: miner
-        quantity: 1
-        time: 2
-        ingredients:
-          iron-ore-vein: 1
-  - id: copper-ore
-    name: 'Copper Ore'
-    recipes:
-      - building_type: miner
-        quantity: 1
-        time: 2
-        ingredients:
-          copper-ore-vein: 1
-  - id: titanium-ore
-    name: 'Titanium Ore'
-    recipes:
-      - building_type: miner
-        quantity: 1
-        time: 2
-        ingredients:
-          titanium-ore-vein: 1
-  - id: stone
-    name: 'Stone'
-    recipes:
-      - building_type: miner
-        quantity: 1
-        time: 2
-        ingredients:
-          stone-ore-vein: 1
-  - id: coal
-    name: 'Coal'
-    recipes:
-      - building_type: miner
-        quantity: 1
-        time: 2
-        ingredients:
-          coal-vein: 1
-  - id: crude-oil
-    name: 'Crude Oil'
-    recipes:
-      - building_type: oil-extractor
-        quantity: 1
-        time: 1
-        ingredients:
-          crude-oil-vein: 1
-  - id: iron-ingot
-    name: 'Iron Ingot'
-    recipes:
-      - building_type: smelter
-        quantity: 1
-        time: 1
-        ingredients:
-          iron-ore: 1
-  - id: copper-ingot
-    name: 'Copper Ingot'
-    recipes:
-      - building_type: smelter
-        quantity: 1
-        time: 1
-        ingredients:
-          iron-ore: 1
-  - id: titanium-ingot
-    name: 'Titanium Ingot'
-    recipes:
-      - building_type: smelter
-        quantity: 1
-        time: 2
-        ingredients:
-          titanium-ore: 2
+    name: Iron Ore
   - id: magnet
-    name: 'Magnet'
-    recipes:
-      - building_type: smelter
-        quantity: 1
-        time: 1.5
-        ingredients:
-          iron-ore: 1
-  - id: steel
-    name: 'Steel'
-    recipes:
-      - building_type: smelter
-        quantity: 1
-        time: 3
-        ingredients:
-          iron-ingot: 3
-  - id: gear
-    name: 'Gear'
-    recipes:
-      - building_type: assembler
-        quantity: 1
-        time: 1
-        ingredients:
-          iron-ingot: 1
-  - id: energetic-graphite
-    name: 'Energetic Graphite'
-    recipes:
-      - building_type: smelter
-        quantity: 1
-        time: 2
-        ingredients:
-          coal: 2
-  - id: refined-oil
-    name: Refined Oil
-    recipes:
-      - building_type: refining-facility
-        quantity: 2
-        time: 4
-        ingredients:
-          crude-oil: 2
+    name: Magnet
+  - id: copper-ore
+    name: Copper Ore
+  - id: stone
+    name: Stone
+  - id: silicon-ore
+    name: Silicon Ore
+  - id: high-purity-silicon
+    name: High Purity Silicon
+  - id: iron-ingot
+    name: Iron Ingot
+  - id: copper-ingot
+    name: Copper Ingot
+  - id: stone-brick
+    name: Stone Brick
   - id: magnetic-coil
-    name: 'Magnetic Coil'
-    recipes:
-      - building_type: assembler
-        quantity: 2
-        time: 1
-        ingredients:
-          magnet: 2
-          iron-ingot: 1
+    name: Magnetic Coil
+  - id: steel
+    name: Steel
+  - id: glass
+    name: Glass
+  - id: circuit-board
+    name: Circuit Board
+  - id: prism
+    name: Prism
+  - id: microcrystalline-component
+    name: Microcrystalline Component
   - id: electric-motor
-    name: 'Electric Motor'
-    recipes:
-      - building_type: assembler
-        quantity: 1
-        time: 2
-        ingredients:
-          iron-ingot: 2
-          gear: 1
-          magnetic-coil: 1
+    name: Electric Motor
   - id: electromagnetic-turbine
-    name: 'Electromagnetic Turbine'
-    recipes:
-      - building_type: assembler
-        quantity: 1
-        time: 2
-        ingredients:
-          electric-motor: 2
-          magnetic-coil: 2
-  - id: super-magnetic-ring
-    name: 'Super-Magnetic Ring'
-    recipes:
-      - building_type: assembler
-        quantity: 1
-        time: 3
-        ingredients:
-          electromagnetic-turbine: 2
-          magnet: 3
-          energetic-graphite: 1
-building_types:
-  - id: smelter
-    name: Smelter
-  - id: miner
-    name: Miner
-  - id: assembler
-    name: Assembler
-  - id: chemical-facility
-    name: Chemical Facility
-  - id: oil-extractor
-    name: Oil Extractor
-  - id: refining-facility
-    name: Refining Facility
+    name: Electromagnetic Turbine
+  - id: gear
+    name: Gear
+  - id: processor
+    name: Processor
+  - id: photon-combiner
+    name: Photon Combiner
+building-types:
+  miner: Miner
+  assembler: Assembler
+  smelter: Smelter
+buildings:
+  - id: arc-smelter
+    name: Arc Smelter
+    type: smelter
+  - id: assembler-1
+    name: Assembling Machine Mk.1
+    type: assembler
+recipes:
+  - products: {iron-ingot: 1}
+    time: 1
+    materials: {iron-ore: 1}
+    building: smelter
+  - products: {magnet: 1}
+    time: 1.5
+    materials: {iron-ore: 1}
+    building: smelter
+  - products: {copper-ingot: 1}
+    time: 1
+    materials: {copper-ore: 1}
+    building: smelter
+  - products: {stone-brick: 1}
+    time: 1
+    materials: {stone: 1}
+    building: smelter
+  - products: {magnetic-coil: 2}
+    time: 1
+    materials: {magnet: 2, copper-ingot: 1}
+    building: assembler
+  - products: {glass: 1}
+    time: 2
+    materials: {stone: 2}
+    building: smelter
+  - products: {circuit-board: 2}
+    time: 1
+    materials: {iron-ingot: 2, copper-ingot: 1}
+    building: assembler
+  - products: {prism: 2}
+    time: 2
+    materials: {glass: 3}
+    building: assembler
+  - products: {electric-motor: 1}
+    time: 2
+    materials: {iron-ingot: 2, gear: 1, magnetic-coil: 1}
+    building: assembler
+  - products: {steel: 1}
+    time: 3
+    materials: {iron-ingot: 3,}
+    building: smelter
+  - products: {electromagnetic-turbine: 1}
+    time: 2
+    materials: {electric-motor: 2, magnetic-coil: 2}
+    building: assembler
+  - products: {high-purity-silicon: 1}
+    time: 2
+    materials: {silicon-ore: 2}
+    building: smelter
+  - products: {microcrystalline-component: 1}
+    time: 2
+    materials: {high-purity-silicon: 2, copper-ingot: 1}
+    building: assembler
+  - products: {processor: 1}
+    time: 3
+    materials: {circuit-board: 2, microcrystalline-component: 2}
+    building: assembler
+  - products: {photon-combiner: 1}
+    time: 3
+    materials: {prism: 2, circuit-board: 1}
+    building: assembler
+  - products: {arc-smelter: 1}
+    time: 3
+    materials: {iron-ingot: 4, stone-brick: 2, circuit-board: 4, magnetic-coil: 2}
+    building: assembler
+  - products: {assembler-1: 1}
+    time: 2
+    materials: {iron-ingot: 4, gear: 8, circuit-board: 4}
+    building: assembler
