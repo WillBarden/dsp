@@ -43,13 +43,31 @@ building-types:
   miner: Miner
   assembler: Assembler
   smelter: Smelter
+  logistics: Logistics
+  power-transmission: Power Transmission
+  research-facility: Research Facility
 buildings:
+  - id: miner
+    name: Mining Machine
+    type: miner
   - id: arc-smelter
     name: Arc Smelter
     type: smelter
   - id: assembler-1
     name: Assembling Machine Mk.1
     type: assembler
+  - id: belt-1
+    name: Conveyor Belt Mk.1
+    type: logistics
+  - id: sorter-1
+    name: Sorter Mk.1
+    type: logistics
+  - id: tesla-tower
+    name: Tesla Tower
+    type: power-transmission
+  - id: matrix-lab
+    name: Matrix Lab
+    type: research-facility
 recipes:
   - products: {iron-ingot: 1}
     time: 1
@@ -119,3 +137,27 @@ recipes:
     time: 2
     materials: {iron-ingot: 4, gear: 8, circuit-board: 4}
     building: assembler
+  - products: {belt-1: 3}
+    time: 1
+    materials: {iron-ingot: 2, gear: 1}
+    building: assembler
+  - products: {sorter-1: 1}
+    time: 1
+    materials: {iron-ingot: 1, circuit-board: 1}
+    building: assembler
+  - products: {tesla-tower: 1}
+    time: 1
+    materials: {iron-ingot: 2, magnetic-coil: 1}
+    building: assembler
+  - products: {electromagnetic-matrix: 1}
+    time: 3
+    materials: {magnetic-coil: 10, circuit-board: 10}
+    building: matrix-lab
+matrices:
+  - id: electromagnetic-matrix
+    name: Electromagnetic Matrix
+    time: 3
+    color: blue
+    materials:
+      magnetic-coil: 10
+      circuit-board: 10

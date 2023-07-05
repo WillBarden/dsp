@@ -25,6 +25,14 @@ class Item(Resource):
   def from_dict(cls, D: dict):
     return Item(D['id'], D['name'])
 
+class Matrix(Resource):
+  def __init__(self, id: str, name: str, color: str):
+    super(Matrix, self).__init__(id, name)
+    self.color = color
+
+  @classmethod
+  def from_dict(cls, D: dict):
+    return Matrix(D['id'], D['name'], D['color'])
 
 class Building(Resource):
   def __init__(self, id: str, name: str, building_type: str):
@@ -52,11 +60,12 @@ class Recipe:
 
 
 class Catalog:
-  def __init__(self, items: List[Item], building_types: dict, buildings: List[Building], recipes: List[Recipe]):
+  def __init__(self, items: List[Item], building_types: dict, buildings: List[Building], matrices: List[Matrix], recipes: List[Recipe]):
     self.items = items
+    self.building_types = building_types
     self.buildings = buildings
     self.recipes = recipes
-    self.building_types = building_types
+    self.matrices = matrices
 
   @property
   def resources(self):
@@ -83,14 +92,15 @@ class Catalog:
     g = nx.DiGraph()
     for item in self.items:
       color = 'lightblue' if self.craftable(item) else 'lightgreen'
-      g.add_node(item.id, label=item.name.center(20), shape='circle', color=color, value=100)
+      g.add_node(item.id, label=item.name, shape='circle', color=color)
+
+    for matrix in self.matrices:
+      g.add_node(matrix.id, label=matrix.name, color=matrix.color)
+
     for building in self.buildings:
-      g.add_node(building.id, label=building.name.center(20), shape='circle', color='pink', value=200)
+      g.add_node(building.id, label=building.name, shape='circle', color='pink')
 
     for recipe in self.recipes:
-      recipe_id = str(hash(recipe))
-      label = self.building_types[recipe.building]
-      # g.add_node(recipe_id, label=label, shape='box', color='lightgray')
       for product, _ in recipe.products.items():
         for material, quantity in recipe.materials.items():
           g.add_edge(material, product, label=str(quantity), color='darkgray', width=5)
@@ -100,8 +110,8 @@ class Catalog:
     G = self.to_nx()
     net = Network(directed=True, height='98vh', font_color='black')
     # net.options.layout.set_separation(200)
-    net.repulsion(node_distance=250, central_gravity=0.1)
-    net.set_edge_smooth('diagonalCross')
+    net.repulsion(node_distance=150, central_gravity=0.05, spring_length=300, spring_strength=0.01)
+    net.set_edge_smooth('continuous')
     net.from_nx(G)
     net.save_graph('dsp_resource_crafting_tree.html')
     # pos = nx.spring_layout(g, seed=3068)
@@ -121,8 +131,9 @@ class Catalog:
     items = [Item.from_dict(d) for d in config['items']]
     building_types = config['building-types']
     buildings = [Building.from_dict(d) for d in config['buildings']]
+    matrices = [Matrix.from_dict(d) for d in config['matrices']]
     recipes = [Recipe.from_dict(d) for d in config['recipes']]
-    return Catalog(items, building_types, buildings, recipes)
+    return Catalog(items, building_types, buildings, matrices, recipes)
 
   @classmethod
   def load(cls):
