@@ -3,12 +3,13 @@ import yaml
 from typing import List, Optional
 from pyvis.network import Network
 from types import SimpleNamespace
+from abc import ABC, abstractmethod
 
 RESOURCES_FILE = 'resources.yaml'
 VISUALIZATION_FILE = 'dsp_resource_crafting_tree.html'
 
 
-class Resource:
+class Resource(ABC):
   def __init__(self, id: str, name: str):
     self.id = id
     self.name = name
@@ -20,14 +21,14 @@ class NaturalResource(Resource):
 
   def __str__(self):
     return self.name
-  
+
   @classmethod
   def from_dict(cls, d):
     return NaturalResource(d['id'], d['name'])
 
 
 class Recipe:
-  def __init__(self, building_type: str, quantity: int, time: int, ingredients: Optional[dict]):
+  def __init__(self, building_type: str, quantity: int, time: int, ingredients: dict):
     self.building_type = building_type
     self.quantity = quantity
     self.time = time
@@ -60,10 +61,17 @@ class Building(Resource):
 
 
 class Catalog:
-  def __init__(self, natural_resources: List[NaturalResource], items: List[Item], buildings: List[Building]):
+  def __init__(
+      self, 
+      natural_resources: List[NaturalResource], 
+      items: List[Item], 
+      buildings: List[Building],
+      building_types: dict
+  ):
     self.natural_resources = natural_resources
     self.items = items
     self.buildings = buildings
+    self.building_types = building_types
 
   def __contains__(self, item):
     item = item if isinstance(item, str) else item.id
@@ -76,7 +84,8 @@ class Catalog:
   def from_config(cls, config):
     natural_resources = [NaturalResource.from_dict(r) for r in config['natural_resources']]
     items = [Item.from_dict(i) for i in config['items']]
-    return Catalog(natural_resources, items, [])
+    building_types = {t['id']: t['name'] for t in config['building_types']}
+    return Catalog(natural_resources, items, [], building_types)
 
 
 def load_resource_config():
@@ -86,13 +95,26 @@ def load_resource_config():
 
 def create_crafting_tree_visualization(catalog: Catalog):
   net = Network(directed=True, width=1500, height=1000)
-  net.toggle_physics(True)
-  net.barnes_hut()
+  # net.toggle_physics(True)
+  # net.barnes_hut()
 
-  for r in catalog.all_resources():
-    print(type(r))
+  for resource in catalog.all_resources():
+    print(resource.id)
+    if isinstance(resource, NaturalResource):
+      net.add_node(resource.id, label=resource.name, color='green')
+    elif isinstance(resource, Item):
+      net.add_node(resource.id, label=resource.name, color='blue')
+    elif isinstance(resource, Building):
+      pass
 
-  # net.save_graph(VISUALIZATION_FILE)
+  for item in catalog.items:
+    for recipe in item.recipes:
+      net.add_node(hash(recipe), label=catalog.building_types[recipe.building_type], color='gray')
+      net.add_edge(hash(recipe), item.id, label=f'{recipe.quantity}/{recipe.time}s', color='black')
+      for ingredient, quantity in recipe.ingredients.items():
+        net.add_edge(ingredient, hash(recipe), label=str(quantity), color='black')
+
+  net.save_graph(VISUALIZATION_FILE)
     
 
 if __name__ == '__main__':
