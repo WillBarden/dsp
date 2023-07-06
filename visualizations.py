@@ -27,7 +27,7 @@ def create_crafting_graph(catalog):
   for recipe in catalog.recipes:
     for product, _ in recipe.products.items():
       for material, quantity in recipe.materials.items():
-        G.add_edge(material, product, label=str(quantity), color=edge_color, weight=(recipe.time / 2))
+        G.add_edge(material, product, label=str(quantity), color=edge_color, weight=(recipe.time / 5))
   return G
   
 

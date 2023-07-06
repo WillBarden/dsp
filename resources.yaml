@@ -77,12 +77,21 @@ items:
   - { id: plant-fuel, name: Plant Fuel }
 
 building-types:
-  miner: Miner
-  assembler: Assembler
-  smelter: Smelter
-  logistics: Logistics
   power-transmission: Power Transmission
+  power-facility: Power Facility
+  logistics: Logistics
+  miner: Mining Facility
+  water-pumping-facility: Water Pumping Facility
+  oil-extraction-facility: Oil Extractor
+  refining-facility: Refining Facility
+  particle-collider: Particle Collider
+  production-facility: Production Facility
+  assembler: Assembler
+  smelter-facility: Smelting Facility
   research-facility: Research Facility
+  fractionation-facility: Fractionation Facility
+  chemical-facility: Chemical Facility
+  power-storage: Power Storage
 
 matrices:
   - id: electromagnetic-matrix
@@ -107,109 +116,196 @@ matrices:
     color: green
 
 buildings:
-  - id: miner
-    name: Mining Machine
-    type: miner
-  - id: arc-smelter
-    name: Arc Smelter
-    type: smelter
-  - id: assembler-1
-    name: Assembling Machine Mk.1
-    type: assembler
-  - id: belt-1
-    name: Conveyor Belt Mk.1
-    type: logistics
-  - id: sorter-1
-    name: Sorter Mk.1
-    type: logistics
-  - id: tesla-tower
-    name: Tesla Tower
-    type: power-transmission
-  - id: matrix-lab
-    name: Matrix Lab
-    type: research-facility
+  - { id: tesla-tower, type: power-transmission, name: Tesla Tower }
+  - { id: wireless-power-tower, type: power-transmission, name: Wireless Power Tower }
+  - { id: satellite-substation, type: power-transmission, name: Satellite Substation }
+  - { id: wind-turbine, type: power-facility, name: Wind Turbine }
+  - { id: thermal-power-plant, type: power-facility, name: Thermal Power Plant }
+  - { id: solar-panel, type: power-facility, name: Solar Panel }
+  - { id: geothermal-power-station, type: power-facility, name: Geothermal Power Station }
+  - { id: mini-fusion-power-plant, type: power-facility, name: Mini Fusion Power Plant }
+  - { id: energy-exchanger, type: power-transmission, name: Energy Exchanger }
+  - { id: ray-receiver, type: power-facility, name: Ray Receiver }
+  - { id: artifical-star, type: power-facility, name: Artificial Star }
+  - { id: conveyor-belt-1, type: logistics, name: Conveyor Belt Mk.1 }
+  - { id: conveyor-belt-2, type: logistics, name: Conveyor Belt Mk.2 }
+  - { id: conveyor-belt-3, type: logistics, name: Conveyor Belt Mk.3 }
+  - { id: splitter, type: logistics, name: Splitter }
+  - { id: automatic-piler, type: logistics, name: Automatic Piler }
+  - { id: storage-1, type: logistics, name: Storage Mk.1 }
+  - { id: storage-2, type: logistics, name: Storage Mk.2 }
+  - { id: storage-tank, type: logistics, name: Storage Tank }
+  - { id: logistics-distributor, type: logistics, name: Logistics Distributor }
+  - { id: planetary-logistics-station, type: logistics, name: Planetary Logistics Station }
+  - { id: interstellar-logistics-station, type: logistics, name: Interstellar Logistics Station }
+  - { id: orbital-collector, type: logistics, name: Orbital Collector }
+  - { id: sorter-1, type: logistics, name: Sorter Mk.1 }
+  - { id: sorter-2, type: logistics, name: Sorter Mk.2 }
+  - { id: sorter-3, type: logistics, name: Sorter Mk.3 }
+  - { id: traffic-monitor, type: logistics, name: Traffic Monitor }
+  - { id: mining-machine, type: mining-facility, name: Mining Machine }
+  - { id: advanced-mining-machine, type: mining-facility, name: Advanced Mining Machine }
+  - { id: water-pump, type: water-pumping-facility, name: Water Pumping Facility }
+  - { id: oil-extractor, type: oil-extraction-facility, name: Oil Extractor }
+  - { id: oil-refinery, type: refining-facility, name: Oil Refinery }
+  - { id: miniature-particle-collider, type: particle-collider, name: Miniature Particle Collider }
+  - { id: em-rail-ejector, type: production-facility, name: EM-Rail Ejector }
+  - { id: vertical-launching-silo, type: production-facility, name: Vertical Launching Silo }
+  - { id: assembling-machine-1, type: assembler, name: Assembling Machine Mk.1 }
+  - { id: assembling-machine-2, type: assembler, name: Assembling Machine Mk.2 }
+  - { id: assembling-machine-3, type: assembler, name: Assembling Machine Mk.3 }
+  - { id: arc-smelter, type: smelting-facility, name: Arc Smelter }
+  - { id: plane-smelter, type: smelting-facility, name: Plane Smelter }
+  - { id: matrix-lab, type: research-facility, name: Matrix Lab }
+  - { id: spray-coater, type: production-facility, name: Spray Coater }
+  - { id: fractionator, type: fractionation-facility, name: Fractionator }
+  - { id: chemical-plant, type: chemical-facility, name: Chemical Plant }
+  - { id: quantum-chemical-plant, type: chemical-facility, name: Quantum Chemical Plant }
+  - { id: accumulator, type: power-storage, name: Accumulator }
+  - { id: full-accumulator, type: power-storage, name: Full Accumulator }
+
 recipes:
-  - products: {iron-ingot: 1}
-    time: 1
-    materials: {iron-ore: 1}
-    building: smelter
-  - products: {magnet: 1}
-    time: 1.5
-    materials: {iron-ore: 1}
-    building: smelter
-  - products: {copper-ingot: 1}
-    time: 1
-    materials: {copper-ore: 1}
-    building: smelter
-  - products: {stone-brick: 1}
-    time: 1
-    materials: {stone: 1}
-    building: smelter
-  - products: {magnetic-coil: 2}
-    time: 1
-    materials: {magnet: 2, copper-ingot: 1}
+  - time: 1
+    building: smelting-facility
+    products: { iron-ingot: 1 }
+    materials: { iron-ore: 1 }
+  - time: 1
+    building: smelting-facility
+    products: { copper-ingot: 1 }
+    materials: { copper-ore: 1 }
+  - time: 1
+    building: smelting-facility
+    products: { stone-brick: 1 }
+    materials: { iron: 1 }
+  - time: 2
+    building: smelting-facility
+    products: { energetic-graphite: 1 }
+    materials: { coal: 2 }
+  - time: 2
+    building: smelting-facility
+    products: { high-purity-silicon: 1 }
+    materials: { silicon-ore: 2 }
+  - time: 2
+    building: smelting-facility
+    products: { titanium-ingot: 1 }
+    materials: { titanium-ore: 2 }
+  - time: 6
     building: assembler
-  - products: {glass: 1}
-    time: 2
-    materials: {stone: 2}
-    building: smelter
-  - products: {circuit-board: 2}
-    time: 1
+    products: { hydrogen-fuel-rod: 1 }
+    materials: { titanium-ingot: 1, hydrogen: 10 }
+  - time: 12
+    building: assembler
+    products: { deuteron-fuel-rod: 2 }
+    materials: { titanium-alloy: 1, deuterium: 20, super-magnetic-ring: 1 }
+  - time: 1.5
+    building: smelting-facility
+    products: { magnet: 1 }
+    materials: { iron-ore: 2 }
+  - time: 1
+    building: assembler
+    products: { magnetic-coil: 2 }
+    materials: { magnet: 2, copper-ingot: 1 }
+  - time: 2
+    building: smelting-facility
+    products: { glass: 1 }
+    materials: { stone: 2 }
+  - time: 2
+    building: smelting-facility
+    products: { diamond: 1 }
+    materials: { energetic-graphite: 1 }
+  - time: 1.5
+    building: smelting-facility
+    products: { diamond: 2 }
+    materials: { kimberlite-ore: 1 }
+  - time: 2
+    building: smelting-facility
+    products: { crystal-silicon: 1 }
+    materials: { high-purity-silicon: 1 }
+  - time: 1.5
+    building: smelting-facility
+    products: { crystal-silicon: 2 }
+    materials: { fractal-silicon: 1 }
+  - time: 12
+    building: smelting-facility
+    products: { titanium-alloy: 4 }
+    materials: { titanium-ingot: 4, steel: 4, sulfuric-acid: 8 }
+  - time: 3
+    building: smelting-facility
+    products: { plastic: 1 }
+    materials: { refined-oil: 2, energetic-graphite: 1 }
+  - time: 6
+    building: chemical-facility
+    products: { organic-crystal: 1 }
+    materials: { plastic: 2, refined-oil: 1, water: 1 }
+  - time: 3
+    building: chemical-facility
+    products: { graphene: 2 }
+    materials: { energetic-graphite: 3, sulfuric-acid: 1 }
+  - time: 2
+    building: chemical-facility
+    products: { graphene: 2, hydrogen: 1 }
+    materials: { fire-ice: 2 }
+  - time: 20
+    building: chemical-facility
+    products: { annihilation-constraint-sphere: 1 }
+    materials: { particle-container: 1, processor: 1 }
+  - time: 3
+    building: smelting-facility
+    products: { steel: 1 }
+    materials: { iron-ingot: 3 }
+  - time: 1
+    building: assembler
+    products: { circuit-board: 2 }
     materials: { iron-ingot: 2, copper-ingot: 1 }
-    building: assembler 
-  - products: {prism: 2}
-    time: 2
-    materials: {glass: 3}
+  - time: 2
     building: assembler
-  - products: {electric-motor: 1}
-    time: 2
-    materials: {iron-ingot: 2, gear: 1, magnetic-coil: 1}
+    products: { prism: 2 }
+    materials: { glass: 3 }
+  - time: 2
     building: assembler
-  - products: {steel: 1}
-    time: 3
-    materials: {iron-ingot: 3,}
-    building: smelter
-  - products: {electromagnetic-turbine: 1}
-    time: 2
-    materials: {electric-motor: 2, magnetic-coil: 2}
+    products: { electric-motor: 1 }
+    materials: { iron-ingot: 2, gear: 1, magnetic-coil: 1 }
+  - time: 2
+    building:  assembler
+    products: { microcrystalline-component: 1 }
+    materials: { high-purity-silicon: 2, copper-ingot: 1 }
+  - time: 1
     building: assembler
-  - products: {high-purity-silicon: 1}
-    time: 2
-    materials: {silicon-ore: 2}
-    building: smelter
-  - products: {microcrystalline-component: 1}
-    time: 2
-    materials: {high-purity-silicon: 2, copper-ingot: 1}
+    products: { gear: 1 }
+    materials: { iron-ingot: 1 }
+  - time: 2
     building: assembler
-  - products: {processor: 1}
-    time: 3
-    materials: {circuit-board: 2, microcrystalline-component: 2}
+    products: { plasma-exciter: 1 }
+    materials: { magnetic-coil: 4, prism: 2 }
+  - time: 3
     building: assembler
-  - products: {photon-combiner: 1}
-    time: 3
-    materials: {prism: 2, circuit-board: 1}
+    products: { photon-combiner: 1}
+    materials: { prism: 2, circuit-board: 1 }
+  - time: 3
     building: assembler
-  - products: {arc-smelter: 1}
-    time: 3
-    materials: {iron-ingot: 4, stone-brick: 2, circuit-board: 4, magnetic-coil: 2}
+    products: { photon-combiner: 1}
+    materials: { optical-grating-crystal: 1, circuit-board: 1 }
+  - time: 2
+    building:  assembler
+    products: { electromagnetic-turbine: 1 }
+    materials: { electric-motor: 2, magnetic-coil: 2 }
+  - time: 3
     building: assembler
-  - products: {assembler-1: 1}
-    time: 2
-    materials: {iron-ingot: 4, gear: 8, circuit-board: 4}
+    products: { processor: 1 }
+    materials: { circuit-board: 2, microcrystalline-component: 2}
+  - time: 0.5
     building: assembler
-  - products: {belt-1: 3}
-    time: 1
-    materials: {iron-ingot: 2, gear: 1}
+    products: { proliferator-1: 1 }
+    materials: { coal: 1 }
+  - time: 1
     building: assembler
-  - products: {sorter-1: 1}
-    time: 1
-    materials: {iron-ingot: 1, circuit-board: 1}
+    products: { proliferator-2: 1 }
+    materials: { proliferator-1: 2, diamond: 1 }
+  - time: 2
     building: assembler
-  - products: {tesla-tower: 1}
-    time: 1
-    materials: {iron-ingot: 2, magnetic-coil: 1}
-    building: assembler
-  - products: {electromagnetic-matrix: 1}
-    time: 3
-    materials: {magnetic-coil: 10, circuit-board: 10}
-    building: matrix-lab
+    products: { proliferator-3: 1 }
+    materials: { proliferator-2: 2, carbon-nanotube: 1 }
+  # - time:
+  #   building: 
+  #   products: {}
+  #   materials: {}
