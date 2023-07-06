@@ -1,8 +1,9 @@
-from catalog import Catalog
-
+import math
 import networkx as nx
 import yaml
 from pyvis.network import Network
+
+from catalog import Catalog
 from type_defs import *
 
 
@@ -26,13 +27,13 @@ def create_crafting_graph(catalog):
   for recipe in catalog.recipes:
     for product, _ in recipe.products.items():
       for material, quantity in recipe.materials.items():
-        G.add_edge(material, product, label=str(quantity), color=edge_color, width=1)
+        G.add_edge(material, product, label=str(quantity), color=edge_color, weight=(recipe.time / 2))
   return G
   
 
 def generate_html(G, file_name):
-  net = Network(directed=True, height='98vh', font_color='black')
-  net.repulsion(node_distance=150, central_gravity=0.05, spring_length=300, spring_strength=0.01)
+  net = Network(directed=True, height='98vh', font_color='black', layout=False)
+  net.repulsion(node_distance=100, central_gravity=0.05, spring_length=200, spring_strength=0.01)
   net.set_edge_smooth('continuous')
   net.from_nx(G)
   net.save_graph(file_name)
