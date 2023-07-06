@@ -1,44 +1,81 @@
 items:
-  - id: iron-ore
-    name: Iron Ore
-  - id: magnet
-    name: Magnet
-  - id: copper-ore
-    name: Copper Ore
-  - id: stone
-    name: Stone
-  - id: silicon-ore
-    name: Silicon Ore
-  - id: high-purity-silicon
-    name: High Purity Silicon
-  - id: iron-ingot
-    name: Iron Ingot
-  - id: copper-ingot
-    name: Copper Ingot
-  - id: stone-brick
-    name: Stone Brick
-  - id: magnetic-coil
-    name: Magnetic Coil
-  - id: steel
-    name: Steel
-  - id: glass
-    name: Glass
-  - id: circuit-board
-    name: Circuit Board
-  - id: prism
-    name: Prism
-  - id: microcrystalline-component
-    name: Microcrystalline Component
-  - id: electric-motor
-    name: Electric Motor
-  - id: electromagnetic-turbine
-    name: Electromagnetic Turbine
-  - id: gear
-    name: Gear
-  - id: processor
-    name: Processor
-  - id: photon-combiner
-    name: Photon Combiner
+  - { id: iron-ore, name: Iron Ore }
+  - { id: copper-ore, name: Copper Ore }
+  - { id: stone, name: Stone }
+  - { id: coal, name: Coal }
+  - { id: silicon-ore, name: Silicon Ore}
+  - { id: titanium-ore, name: Titanium Ore }
+  - { id: water, name: Water }
+  - { id: crude-oil, name: Crude Oil }
+  - { id: hydrogen, name: Hydrogen }
+  - { id: deuterium, name: Deuterium }
+  - { id: antimatter, name: Antimatter }
+  - { id: kimberlite-ore, name: Kimberlite Ore }
+  - { id: iron-ingot, name: Iron Ingot }
+  - { id: copper-ingot, name: Copper Ingot }
+  - { id: stone-brick, name: Stone Brick }
+  - { id: energetic-graphite, name: Energetic Graphite }
+  - { id: high-purity-silicon, name: High Purity Silicon }
+  - { id: titanium-ingot, name: Titanium Ingot }
+  - { id: sulfuric-acid, name: Sulfuric Acid }
+  - { id: refined-oil, name: Refined Oil }
+  - { id: hydrogen-fuel-rod, name: Hydrogen Fuel Rod }
+  - { id: deuteron-fuel-rod, name: Deuteron Fuel Rod }
+  - { id: antimatter-fuel-rod, name: Antimatter Fuel Rod }
+  - { id: fractal-silicon, name: Fractal Silicon }
+  - { id: magnet, name: Magnet }
+  - { id: magnetic-coil, name: Magnetic Coil }
+  - { id: glass, name: Glass }
+  - { id: diamond, name: Diamond }
+  - { id: crystal-silicon, name: Crystal Silicon }
+  - { id: titanium-alloy, name: Titanium Alloy }
+  - { id: fire-ice, name: Fire Ice }
+  - { id: plastic, name: Plastic }
+  - { id: organic-crystal, name: Organic Crystal }
+  - { id: graphene, name: Graphene }
+  - { id: annihilation-constraint-sphere, name: Annihilation Constraint Sphere }
+  - { id: optical-grating-crystal, name: Optical Grating Crystal }
+  - { id: steel, name: Steel }
+  - { id: circuit-board, name: Circuit Board }
+  - { id: prism, name: Prism }
+  - { id: electric-motor, name: Electric Motor }
+  - { id: microcrystalline-component, name: Microcrystalline Component }
+  - { id: proliferator-1, name: Proliferator Mk.1 }
+  - { id: casamir-crystal, name: Casamir Crystal }
+  - { id: strange-matter, name: Strange Matter }
+  - { id: titanium-crystal, name: Titanium Crystal }
+  - { id: carbon-nanotube, name: Carbon Nanotube }
+  - { id: particle-broadband, name: Particle Broadband }
+  - { id: spiniform-stalagmite-crystal, name: Spiniform Stalagmite Crystal }
+  - { id: gear, name: Gear }
+  - { id: plasma-exciter, name: Plasma Exciter }
+  - { id: photon-combiner, name: Photon Combiner }
+  - { id: electromagnetic-turbine, name: Electromagnetic Turbine }
+  - { id: processor, name: Processor }
+  - { id: proliferator-2, name: Proliferator Mk.2 }
+  - { id: thruster, name: Thruster }
+  - { id: reinforced-thruster, name: Reinforced Thruster }
+  - { id: logistics-bot, name: Logistics Bot }
+  - { id: logistics-drone, name: Logistics Drone }
+  - { id: logistics-vessel, name: Logistics Vessel }
+  - { id: unipolar-magnet, name: Unipolar Magnet }
+  - { id: foundation, name: Foundation }
+  - { id: critical-photon, name: Critical Photon }
+  - { id: particle-container, name: Particle Container }
+  - { id: super-magnetic-ring, name: Super-Magnetic Ring}
+  - { id: graviton-lens, name: Graviton Lens }
+  - { id: proliferator-3, name: Proliferator Mk.3 }
+  - { id: space-warper, name: Space Warper }
+  - { id: titanium-glass, name: Titanium Glass }
+  - { id: plane-filter, name: Plane Filter }
+  - { id: quantum-chip, name: Quantum Chip }
+  - { id: log, name: Log }
+  - { id: solar-sail, name: Solar Sail }
+  - { id: frame-material, name: Frame Material }
+  - { id: dyson-sphere-component, name: Dyson Sphere Component }
+  - { id: small-carrier-rocket, name: Small Carrier Rocket }
+  - { id: plant-fuel, name: Plant Fuel }
+
 building-types:
   miner: Miner
   assembler: Assembler
@@ -46,6 +83,7 @@ building-types:
   logistics: Logistics
   power-transmission: Power Transmission
   research-facility: Research Facility
+
 matrices:
   - id: electromagnetic-matrix
     name: Electromagnetic Matrix
@@ -67,6 +105,7 @@ matrices:
     name: Gravity Matrix
     time: 24
     color: green
+
 buildings:
   - id: miner
     name: Mining Machine
@@ -116,8 +155,8 @@ recipes:
     building: smelter
   - products: {circuit-board: 2}
     time: 1
-    materials: {iron-ingot: 2, copper-ingot: 1}
-    building: assembler
+    materials: { iron-ingot: 2, copper-ingot: 1 }
+    building: assembler 
   - products: {prism: 2}
     time: 2
     materials: {glass: 3}
