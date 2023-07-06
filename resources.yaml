@@ -47,42 +47,26 @@ building-types:
   power-transmission: Power Transmission
   research-facility: Research Facility
 matrices:
-matrices:
   - id: electromagnetic-matrix
     name: Electromagnetic Matrix
     time: 3
     color: blue
-    materials:
-      magnetic-coil: 10
-      circuit-board: 10
   - id: energy-matrix
     name: Energy Matrix
     time: 6
     color: red
-    materials:
-      energetic-graphite: 2
-      hydrogen: 2
   - id: structure-matrix
     name: Structure Matrix
     time: 8
     color: yellow
-    materials:
-      diamond: 1
-      titanium-crystal: 1
   - id: information-matrix
     name: Information Matrix
     time: 10
     color: purple
-    materials:
-      processor: 2
-      particle-broadband: 1
   - id: gravity-matrix
     name: Gravity Matrix
     time: 24
     color: green
-    materials:
-      graviton-lens: 1
-      quantum-chip: 1
 buildings:
   - id: miner
     name: Mining Machine
