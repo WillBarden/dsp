@@ -76,6 +76,26 @@ items:
   - { id: small-carrier-rocket, name: Small Carrier Rocket }
   - { id: plant-fuel, name: Plant Fuel }
 
+matrices:
+  - id: electromagnetic-matrix
+    name: Electromagnetic Matrix
+    color: blue
+  - id: energy-matrix
+    name: Energy Matrix
+    color: red
+  - id: structure-matrix
+    name: Structure Matrix
+    color: yellow
+  - id: information-matrix
+    name: Information Matrix
+    color: purple
+  - id: gravity-matrix
+    name: Gravity Matrix
+    color: green
+  - id: universe-matrix
+    name: Universe Matrix
+    color: black
+
 building-types:
   power-transmission: Power Transmission
   power-facility: Power Facility
@@ -87,33 +107,11 @@ building-types:
   particle-collider: Particle Collider
   production-facility: Production Facility
   assembler: Assembler
-  smelter-facility: Smelting Facility
+  smelting-facility: Smelting Facility
   research-facility: Research Facility
   fractionation-facility: Fractionation Facility
   chemical-facility: Chemical Facility
   power-storage: Power Storage
-
-matrices:
-  - id: electromagnetic-matrix
-    name: Electromagnetic Matrix
-    time: 3
-    color: blue
-  - id: energy-matrix
-    name: Energy Matrix
-    time: 6
-    color: red
-  - id: structure-matrix
-    name: Structure Matrix
-    time: 8
-    color: yellow
-  - id: information-matrix
-    name: Information Matrix
-    time: 10
-    color: purple
-  - id: gravity-matrix
-    name: Gravity Matrix
-    time: 24
-    color: green
 
 buildings:
   - { id: tesla-tower, type: power-transmission, name: Tesla Tower }
@@ -176,7 +174,7 @@ recipes:
   - time: 1
     building: smelting-facility
     products: { stone-brick: 1 }
-    materials: { iron: 1 }
+    materials: { iron-ore: 1 }
   - time: 2
     building: smelting-facility
     products: { energetic-graphite: 1 }
@@ -245,6 +243,18 @@ recipes:
     building: chemical-facility
     products: { graphene: 2, hydrogen: 1 }
     materials: { fire-ice: 2 }
+  - time: 2
+    building: particle-collider
+    products: { antimatter: 2, hydrogen: 2 }
+    materials: { critical-photon: 2 }
+  - fraction: 0.01
+    building: fractionation-facility
+    products: { deuterium: 1 }
+    materials: { hydrogen: 1 }
+  - time: 2.5
+    building: particle-collider
+    products: { deuterium: 5 }
+    materials: { hydrogen: 10 }
   - time: 20
     building: chemical-facility
     products: { annihilation-constraint-sphere: 1 }
@@ -305,6 +315,135 @@ recipes:
     building: assembler
     products: { proliferator-3: 1 }
     materials: { proliferator-2: 2, carbon-nanotube: 1 }
+  - time: 1
+    building: assembler
+    products: { foundation: 1 }
+    materials: { stone-brick: 3, steel: 1 }
+  - time: 4
+    building: assembler
+    products: { particle-container: 1 }
+    materials: { electromagnetic-turbine: 2, copper-ingot: 2, graphene: 2 }
+  - time: 4
+    building: assembler
+    products: { particle-container: 1 }
+    materials: { unipolar-magnet: 10, copper-ingot: 2 }
+  - time: 3
+    building: assembler
+    products: { super-magnetic-ring: 1 }
+    materials: { electromagnetic-turbine: 2, magnet: 3, energetic-graphite: 1 }
+  - time: 6
+    building: assembler
+    products: { graviton-lens: 1 }
+    materials: { diamond: 4, strange-matter: 1 }
+  - time: 4
+    building: assembler
+    products: { casamir-crystal: 1 }
+    materials: { diamond: 1, graphene: 2, hydrogen: 12 }
+  - time: 4
+    building: assembler
+    products: { casamir-crystal: 1 }
+    materials: { optical-grating-crystal: 8, graphene: 2, hydrogen: 12 }
+  - time: 8
+    building: particle-collider
+    products: { strange-matter: 1 }
+    materials: { particle-container: 2, iron-ingot: 2, deuterium: 10 }
+  - time: 4
+    building: assembler
+    products: { titanium-crystal: 1 }
+    materials: { organic-crystal: 1, titanium-ingot: 3 }
+  - time: 4
+    building: chemical-facility
+    products: { carbon-nanotube: 2 }
+    materials: { graphene: 3, titanium-ingot: 1 }
+  - time: 4
+    building: chemical-facility
+    products: { carbon-nanotube: 2 }
+    materials: { spiniform-stalagmite-crystal: 6 }
+  - time: 8
+    building: assembler
+    products: { particle-broadband: 8 }
+    materials: { carbon-nanotube: 2, crystal-silicon: 2, plastic: 1 }
+  - time: 4
+    building: assembler
+    products: { thruster: 1 }
+    materials: { steel: 2, copper-ingot: 3 }
+  - time: 6
+    building: assembler
+    products: { reinforced-thruster: 1 }
+    materials: { titanium-alloy: 5, electromagnetic-turbine: 5 }
+  - time: 2
+    building: assembler
+    products: { logistics-bot: 1 }
+    materials: { iron-ingot: 2, electromagnetic-turbine: 1, processor: 1 }
+  - time: 4
+    building: assembler
+    products: { logistics-drone: 1 }
+    materials: { iron-ingot: 5, processor: 2, thruster: 2 }
+  - time: 6
+    building: assembler
+    products: { logistics-vessel: 1 }
+    materials: { titanium-alloy: 10, processor: 10, reinforced-thruster: 2 }
+  - time: 10
+    building: assembler
+    products: { space-warper: 1 }
+    materials: { graviton-lens: 1 }
+  - time: 10
+    building: assembler
+    products: { space-warper: 8 }
+    materials: { gravity-matrix: 1 }
+  - time: 5
+    building: assembler
+    products: { titanium-glass: 2 }
+    materials: { glass: 2, titanium-ingot: 2, water: 2 }
+  - time: 12
+    building: assembler
+    products: { plane-filter: 1 }
+    materials: { casamir-crystal: 1, titanium-glass: 2 }
+  - time: 6
+    building: assembler
+    products: { quantum-chip: 1 }
+    materials: { processor: 2, plane-filter: 2 }
+  - time: 4
+    building: assembler
+    products: { solar-sail: 2 }
+    materials: { graphene: 2, photon-combiner: 1 }
+  - time: 6
+    building: assembler
+    products: { frame-material: 1 }
+    materials: { carbon-nanotube: 4, titanium-alloy: 1, high-purity-silicon: 1 }
+  - time: 8
+    building: assembler
+    products: { dyson-sphere-component: 1 }
+    materials: { frame-material: 3, solar-sail: 3, processor: 3 }
+  - time: 6
+    building: assembler
+    products: { small-carrier-rocket: 1 }
+    materials: { dyson-sphere-component: 2, strange-matter: 4, quantum-chip: 2 }
+  - time: 3
+    building: research-facility
+    products: { electromagnetic-matrix: 1 }
+    materials: { circuit-board: 1, magnetic-coil: 1 }
+  - time: 6
+    building: research-facility
+    products: { energy-matrix: 1 }
+    materials: { hydrogen: 2, energetic-graphite: 2 }
+  - time: 8
+    building: research-facility
+    products: { structure-matrix: 1 }
+    materials: { diamond: 1, titanium-crystal: 1 }
+  - time: 10
+    building: research-facility
+    products: { information-matrix: 1 }
+    materials: { processor: 2, particle-broadband: 1 }
+  - time: 24
+    building: research-facility
+    products: { gravity-matrix: 2 }
+    materials: { graviton-lens: 1, quantum-chip: 1 }
+  - time: 15
+    building: research-facility
+    products: { universe-matrix: 1 }
+    materials: { electromagnetic-matrix: 1, energy-matrix: 1, structure-matrix: 1, information-matrix: 1, gravity-matrix: 1, antimatter: 1 }
+
   # - time:
   #   building: 
   #   products: {}

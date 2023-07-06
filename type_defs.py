@@ -43,9 +43,8 @@ class Building(Resource):
 
 
 class Recipe:
-  def __init__(self, products: dict, time: float, materials: dict, building: str):
+  def __init__(self, products: dict, materials: dict, building: str):
     self.products = products
-    self.time = time
     self.materials = materials
     self.building = building
 
@@ -54,4 +53,13 @@ class Recipe:
 
   @classmethod
   def from_dict(cls, D: dict):
-    return Recipe(D['products'], D['time'], D['materials'], D['building'])
+    recipe = Recipe(D['products'], D['materials'], D['building'])
+    if 'time' in D.keys():
+      recipe.time = D['time']
+      recipe.fraction = None
+    elif 'fraction' in D.keys():
+      recipe.time = None
+      recipe.fraction = D['fraction']
+    else:
+      raise ValueError(f'Recipe "{str(recipe)}" requires either a "fraction" or "time" property')
+    return recipe

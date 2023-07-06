@@ -42,6 +42,17 @@ class Catalog:
     for recipe in self.recipes:
       print(recipe)
 
+  def validate(self):
+    for recipe in self.recipes:
+      if recipe.building not in self.building_types.keys():
+        raise ValueError(f'Invalid building "{recipe.building}" in recipe "{str(recipe)}"')
+      for product in recipe.products.keys():
+        if product not in (item.id for item in self.items + self.matrices):
+          raise ValueError(f'Invalid product "{product}" in recipe "{str(recipe)}"')
+      for material in recipe.materials.keys():
+        if material not in (item.id for item in self.items + self.matrices):
+          raise ValueError(f'Invalid material "{material}" in recipe "{str(recipe)}"')
+
   @classmethod
   def load_config(cls):
     with open('resources.yaml', 'r') as file:
