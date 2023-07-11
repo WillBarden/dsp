@@ -243,6 +243,14 @@ recipes:
     building: chemical-facility
     products: { graphene: 2, hydrogen: 1 }
     materials: { fire-ice: 2 }
+  - time: 4
+    building: refining-facility
+    products: { hydrogen: 1, refined-oil: 2 }
+    materials: { crude-oil: 2 }
+  - time: 4
+    building: refining-facility
+    products: { hydrogen: 3, energetic-graphite: 1 }
+    materials: { refined-oil: 1, hydrogen: 2 }
   - time: 2
     building: particle-collider
     products: { antimatter: 2, hydrogen: 2 }

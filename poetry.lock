@@ -775,17 +775,6 @@ files = [
 plugins = ["importlib-metadata"]
 
 [[package]]
-name = "pygraphviz"
-version = "1.11"
-description = "Python interface to Graphviz"
-category = "main"
-optional = false
-python-versions = ">=3.8"
-files = [
-    {file = "pygraphviz-1.11.zip", hash = "sha256:a97eb5ced266f45053ebb1f2c6c6d29091690503e3a5c14be7f908b37b06f2d4"},
-]
-
-[[package]]
 name = "pyparsing"
 version = "3.1.0"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
@@ -973,4 +962,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "dcdf0c6648af2d17c4a2f6f9d82fabbb6b8745af5a35c8c1c946b2acdc6e002b"
+content-hash = "37b675a1da8aec6cc1c6ce84620d688d06ac76e6f734695685f0aa01c7cbd634"
